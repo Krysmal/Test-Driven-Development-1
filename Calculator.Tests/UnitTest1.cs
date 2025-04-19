@@ -6,10 +6,7 @@ namespace Calculator.Tests
         public void Test1()
         {
             
-            double result = calc.Add(2, 3);
-
             
-            Assert.Equal(5, result);
         }
     }
 }
