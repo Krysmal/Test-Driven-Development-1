@@ -6,5 +6,17 @@ namespace Test_Driven_Development_1
         {
             InitializeComponent();
         }
+
+
+        public void write(string text)
+        {
+            display.Text = text;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            
+        }
     }
 }
