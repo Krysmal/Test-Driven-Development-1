@@ -48,6 +48,9 @@ partial class Form1
             buttonMUL = new Button();
             panel1 = new Panel();
             display = new TextBox();
+            buttonROOT = new Button();
+            buttonLOG = new Button();
+            buttonPOW = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -71,6 +74,7 @@ partial class Form1
             button2.TabIndex = 2;
             button2.Text = "2";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -81,6 +85,7 @@ partial class Form1
             button3.TabIndex = 3;
             button3.Text = "3";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -91,6 +96,7 @@ partial class Form1
             button4.TabIndex = 4;
             button4.Text = "4";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
@@ -101,6 +107,7 @@ partial class Form1
             button5.TabIndex = 5;
             button5.Text = "5";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button6
             // 
@@ -111,6 +118,7 @@ partial class Form1
             button6.TabIndex = 6;
             button6.Text = "6";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // button7
             // 
@@ -121,6 +129,7 @@ partial class Form1
             button7.TabIndex = 7;
             button7.Text = "7";
             button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
             // 
             // button8
             // 
@@ -131,6 +140,7 @@ partial class Form1
             button8.TabIndex = 8;
             button8.Text = "8";
             button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click;
             // 
             // button9
             // 
@@ -141,6 +151,7 @@ partial class Form1
             button9.TabIndex = 9;
             button9.Text = "9";
             button9.UseVisualStyleBackColor = true;
+            button9.Click += button9_Click;
             // 
             // button0
             // 
@@ -151,6 +162,7 @@ partial class Form1
             button0.TabIndex = 10;
             button0.Text = "0";
             button0.UseVisualStyleBackColor = true;
+            button0.Click += button0_Click;
             // 
             // buttonC
             // 
@@ -161,6 +173,7 @@ partial class Form1
             buttonC.TabIndex = 11;
             buttonC.Text = "C";
             buttonC.UseVisualStyleBackColor = true;
+            buttonC.Click += buttonC_Click;
             // 
             // buttonEQ
             // 
@@ -171,6 +184,7 @@ partial class Form1
             buttonEQ.TabIndex = 12;
             buttonEQ.Text = "=";
             buttonEQ.UseVisualStyleBackColor = true;
+            buttonEQ.Click += buttonEQ_Click;
             // 
             // buttonADD
             // 
@@ -181,6 +195,7 @@ partial class Form1
             buttonADD.TabIndex = 13;
             buttonADD.Text = "+";
             buttonADD.UseVisualStyleBackColor = true;
+            buttonADD.Click += buttonADD_Click;
             // 
             // buttonSUB
             // 
@@ -191,6 +206,7 @@ partial class Form1
             buttonSUB.TabIndex = 14;
             buttonSUB.Text = "-";
             buttonSUB.UseVisualStyleBackColor = true;
+            buttonSUB.Click += buttonSUB_Click;
             // 
             // buttonDIV
             // 
@@ -201,6 +217,7 @@ partial class Form1
             buttonDIV.TabIndex = 16;
             buttonDIV.Text = "/";
             buttonDIV.UseVisualStyleBackColor = true;
+            buttonDIV.Click += buttonDIV_Click;
             // 
             // buttonMUL
             // 
@@ -211,10 +228,14 @@ partial class Form1
             buttonMUL.TabIndex = 15;
             buttonMUL.Text = "*";
             buttonMUL.UseVisualStyleBackColor = true;
+            buttonMUL.Click += buttonMUL_Click;
             // 
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.Fixed3D;
+            panel1.Controls.Add(buttonPOW);
+            panel1.Controls.Add(buttonLOG);
+            panel1.Controls.Add(buttonROOT);
             panel1.Controls.Add(display);
             panel1.Controls.Add(button6);
             panel1.Controls.Add(buttonDIV);
@@ -246,6 +267,39 @@ partial class Form1
             display.Name = "display";
             display.Size = new Size(191, 23);
             display.TabIndex = 17;
+            // 
+            // buttonROOT
+            // 
+            buttonROOT.Location = new Point(137, 258);
+            buttonROOT.Margin = new Padding(3, 2, 3, 2);
+            buttonROOT.Name = "buttonROOT";
+            buttonROOT.Size = new Size(44, 38);
+            buttonROOT.TabIndex = 18;
+            buttonROOT.Text = "√";
+            buttonROOT.UseVisualStyleBackColor = true;
+            buttonROOT.Click += buttonROOT_Click;
+            // 
+            // buttonLOG
+            // 
+            buttonLOG.Location = new Point(186, 258);
+            buttonLOG.Margin = new Padding(3, 2, 3, 2);
+            buttonLOG.Name = "buttonLOG";
+            buttonLOG.Size = new Size(44, 38);
+            buttonLOG.TabIndex = 19;
+            buttonLOG.Text = "log";
+            buttonLOG.UseVisualStyleBackColor = true;
+            buttonLOG.Click += buttonLOG_Click;
+            // 
+            // buttonPOW
+            // 
+            buttonPOW.Location = new Point(88, 258);
+            buttonPOW.Margin = new Padding(3, 2, 3, 2);
+            buttonPOW.Name = "buttonPOW";
+            buttonPOW.Size = new Size(44, 38);
+            buttonPOW.TabIndex = 20;
+            buttonPOW.Text = "^";
+            buttonPOW.UseVisualStyleBackColor = true;
+            buttonPOW.Click += buttonPOW_Click;
             // 
             // Form1
             // 
@@ -281,5 +335,8 @@ partial class Form1
         private Button buttonMUL;
         private Panel panel1;
         public TextBox display;
+        private Button buttonPOW;
+        private Button buttonLOG;
+        private Button buttonROOT;
     }
 }
