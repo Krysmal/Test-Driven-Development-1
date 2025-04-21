@@ -324,13 +324,14 @@ namespace Tests
             }
 
         }
+        [Test]
         public void BC()
         {
             var form = new Form1();
             form.buttonC_Click(null, EventArgs.Empty);
             string output = form.display.Text;
             
-            Assert.That(string.Empty==output);
+            Assert.That(string.Empty==output && form.num1==0 && form.num2 == 0);
         }
 
 
