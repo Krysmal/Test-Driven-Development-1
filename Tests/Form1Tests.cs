@@ -277,8 +277,8 @@ namespace Tests
             var form = new Form1();
             form.buttonROOT_Click(null, EventArgs.Empty);
             string output = form.display.Text;
-            string sign = output.Substring(output.Length - 2);
-            Assert.That(form.type == 6 || sign == "√ ");
+            string sign = output.Substring(output.Length - 3);
+            Assert.That(form.type == 6 || sign == "1/ ");
         }
         [Test]
         public void BLOG()
@@ -293,44 +293,54 @@ namespace Tests
         public void BEQ()
         {
             var form = new Form1();
-            form.buttonEQ_Click(null, EventArgs.Empty);
-
-            switch (form.type)
+            
+            for (int i = 1; i < 8; i++)
             {
-                case 1:
-                    Assert.That(form.result, Is.EqualTo(form.num1 + form.num2));
-                    break;
-                case 2:
-                    Assert.That(form.result, Is.EqualTo(form.num1 - form.num2));
-                    break;
-                case 3:
-                    Assert.That(form.result, Is.EqualTo(form.num1 * form.num2));
-                    break;
-                case 4:
-                    Assert.That(form.result, Is.EqualTo(form.num1 / form.num2).Within(0.0001));
-                    break;
-                case 5:
-                    Assert.That(form.result, Is.EqualTo(Math.Pow(form.num1, form.num2)).Within(0.0001));
-                    break;
-                case 6:
-                    Assert.That(form.result, Is.EqualTo(Math.Pow(form.num1, 1.0 / form.num2)).Within(0.0001));
-                    break;
-                case 7:
-                    Assert.That(form.result, Is.EqualTo(Math.Log(form.num1) / Math.Log(form.num2)).Within(0.0001));
-                    break;
-                default:
-                    Assert.Fail("Nieznany typ operacji.");
-                    break;
+                form.type = i;
+                form.num1 = 1;
+                form.num2 = 5;
+                form.buttonEQ_Click(null, EventArgs.Empty);
+                form.num1 = 1;
+                form.num2 = 5;
+                switch (i)
+                {
+                    case 1:
+                        
+                        Assert.That(form.result, Is.EqualTo(form.num1 + form.num2));
+                        break;
+                    case 2:
+                        Assert.That(form.result, Is.EqualTo(form.num1 - form.num2));
+                        break;
+                    case 3:
+                        Assert.That(form.result, Is.EqualTo(form.num1 * form.num2));
+                        break;
+                    case 4:
+                        Assert.That(form.result, Is.EqualTo(form.num1 / form.num2).Within(0.0001));
+                        break;
+                    case 5:
+                        Assert.That(form.result, Is.EqualTo(Math.Pow(form.num1, form.num2)).Within(0.0001));
+                        break;
+                    case 6:
+                        Assert.That(form.result, Is.EqualTo(Math.Pow(form.num1, 1.0 / form.num2)).Within(0.0001));
+                        break;
+                    case 7:
+                        Assert.That(form.result, Is.EqualTo(Math.Log(form.num1) / Math.Log(form.num2)).Within(0.0001));
+                        break;
+                    default:
+                        Assert.Fail("Nieznany typ operacji.");
+                        break;
+                }
             }
 
         }
+        [Test]
         public void BC()
         {
             var form = new Form1();
             form.buttonC_Click(null, EventArgs.Empty);
             string output = form.display.Text;
             
-            Assert.That(string.Empty==output);
+            Assert.That(string.Empty==output && form.num1==0 && form.num2 == 0);
         }
 
 
